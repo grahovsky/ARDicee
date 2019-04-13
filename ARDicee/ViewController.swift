@@ -135,12 +135,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    @IBAction func rollAgain(_ sender: Any) {
+    @IBAction func rollAgain(_ sender: UIBarButtonItem) {
         rollAll()
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         rollAll()
+    }
+    
+    @IBAction func removeAllDice(_ sender: UIBarButtonItem) {
+   
+        if !diceArray.isEmpty {
+            for dice in diceArray{
+                dice.removeFromParentNode()
+            }
+        }
+    
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
